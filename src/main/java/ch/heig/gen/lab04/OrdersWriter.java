@@ -1,3 +1,5 @@
+package ch.heig.gen.lab04;
+
 public class OrdersWriter {
     private Orders orders;
 

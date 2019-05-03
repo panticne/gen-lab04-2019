@@ -1,3 +1,5 @@
+package ch.heig.gen.lab04;
+
 public class Product {
     public static final int SIZE_NOT_APPLICABLE = -1;
     private String code;

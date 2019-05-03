@@ -1,3 +1,5 @@
+package ch.heig.gen.lab04;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

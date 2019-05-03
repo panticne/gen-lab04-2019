@@ -1,3 +1,5 @@
+package ch.heig.gen.lab04;
+
 import java.util.ArrayList;
 import java.util.List;
 
