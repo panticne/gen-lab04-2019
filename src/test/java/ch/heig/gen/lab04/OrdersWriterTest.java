@@ -11,7 +11,7 @@ public class OrdersWriterTest {
 
     @BeforeEach
     public void SetupOneOrder() {
-        orders.AddOrder(order111);  
+        orders.AddOrder(order111);
     }
 
     @Test
