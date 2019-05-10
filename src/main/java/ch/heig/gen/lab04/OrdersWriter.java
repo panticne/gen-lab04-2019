@@ -9,31 +9,19 @@ public class OrdersWriter {
 
     public String getContents() {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
-
         for (int i = 0; i < orders.getOrdersCount(); i++) {
             Order order = orders.getOrder(i);
-            sb.append("{");
-            sb.append("\"id\": ");
             sb.append(order.getOrderId());
-            sb.append(", ");
-            sb.append("\"products\": [");
             for (int j = 0; j < order.getProductsCount(); j++) {
                 Product product = order.getProduct(j);
-
-                sb.append("{");
-                sb.append("\"code\": \"");
                 sb.append(product.getCode());
-                sb.append("\", ");
-                sb.append("\"color\": \"");
                 sb.append(getColorFor(product));
-                sb.append("\", ");
 
                 if (product.getSize() != Size.NA) {
                     sb.append("\"size\": \"");
                     sb.append(getSizeFor(product));
                     sb.append("\", ");
                 }
-
                 sb.append("\"price\": ");
                 sb.append(product.getPrice());
                 sb.append(", ");
@@ -62,6 +50,6 @@ public class OrdersWriter {
     }
 
     private String getColorFor(Product product) {
-        return product.getColor().name();
+        return product.getColor().name()+"\", ";
     }
 }

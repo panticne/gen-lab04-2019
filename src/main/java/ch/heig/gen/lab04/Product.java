@@ -16,7 +16,7 @@ public class Product {
     }
 
     public String getCode() {
-        return code;
+        return "{\"code\": \""+code+"\", \"color\": \"";
     }
 
     public Colors getColor() {
