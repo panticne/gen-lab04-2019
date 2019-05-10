@@ -20,18 +20,13 @@ public class OrdersWriter {
                 if (product.getSize() != Size.NA) {
                     sb.append(getSizeFor(product));
                 }
-                sb.append("\"price\": ");
                 sb.append(product.getPrice());
-                sb.append(", ");
-                sb.append("\"currency\": \"");
                 sb.append(product.getCurrency());
-                sb.append("\"}, ");
             }
 
             if (order.getProductsCount() > 0) {
                 sb.delete(sb.length() - 2, sb.length());
             }
-
             sb.append("]");
             sb.append("}, ");
         }
