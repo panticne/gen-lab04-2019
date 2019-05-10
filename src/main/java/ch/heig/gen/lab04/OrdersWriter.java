@@ -18,9 +18,7 @@ public class OrdersWriter {
                 sb.append(getColorFor(product));
 
                 if (product.getSize() != Size.NA) {
-                    sb.append("\"size\": \"");
                     sb.append(getSizeFor(product));
-                    sb.append("\", ");
                 }
                 sb.append("\"price\": ");
                 sb.append(product.getPrice());
@@ -46,7 +44,7 @@ public class OrdersWriter {
     }
 
     private String getSizeFor(Product product) {
-        return product.getSize().name();
+        return "\"size\": \""+product.getSize().name()+"\", ";
     }
 
     private String getColorFor(Product product) {
