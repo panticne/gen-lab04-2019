@@ -16,7 +16,7 @@ public class Product {
     }
 
     public String getCode() {
-        return code;
+        return "{\"code\": \""+code+"\", \"color\": \"";
     }
 
     public Colors getColor() {
@@ -27,11 +27,11 @@ public class Product {
         return size;
     }
 
-    public double getPrice() {
-        return price;
+    public String getPrice() {
+        return "\"price\": "+price+", \"currency\": \"" ;
     }
 
     public String getCurrency() {
-        return currency;
+        return currency+"\"}, ";
     }
 }

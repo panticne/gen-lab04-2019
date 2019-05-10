@@ -11,8 +11,8 @@ public class Order {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return id;
+    public String getOrderId() {
+        return "{\"id\": "+id+", \"products\": [";
     }
 
     public int getProductsCount() {
