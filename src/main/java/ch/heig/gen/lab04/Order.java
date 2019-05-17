@@ -26,4 +26,22 @@ public class Order {
     public void AddProduct(Product product) {
         products.add(product);
     }
+
+    public String toString(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(getOrderId());
+
+        for (int j = 0; j < getProductsCount(); j++) {
+            sb.append(getProduct(j));
+        }
+
+        if (getProductsCount() > 0) {
+            sb.delete(sb.length() - 2, sb.length());
+        }
+
+        sb.append("]}, ");
+
+        return sb.toString();
+    }
 }
