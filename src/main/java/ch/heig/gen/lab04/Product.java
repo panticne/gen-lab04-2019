@@ -34,4 +34,25 @@ public class Product {
     public String getCurrency() {
         return currency+"\"}, ";
     }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(getCode());
+        sb.append(getColorFor(this));
+
+        if (getSize() != Size.NA) {
+            sb.append(getSizeFor(this));
+        }
+        sb.append(getPrice());
+        sb.append(getCurrency());
+        return sb.toString();
+    }
+
+    private String getSizeFor(Product product) {
+        return "\"size\": \""+product.getSize().name()+"\", ";
+    }
+
+    private String getColorFor(Product product) {
+        return product.getColor().name()+"\", ";
+    }
 }
