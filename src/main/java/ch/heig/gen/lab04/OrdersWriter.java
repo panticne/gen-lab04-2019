@@ -13,15 +13,7 @@ public class OrdersWriter {
             Order order = orders.getOrder(i);
             sb.append(order.getOrderId());
             for (int j = 0; j < order.getProductsCount(); j++) {
-                Product product = order.getProduct(j);
-                sb.append(product.getCode());
-                sb.append(getColorFor(product));
-
-                if (product.getSize() != Size.NA) {
-                    sb.append(getSizeFor(product));
-                }
-                sb.append(product.getPrice());
-                sb.append(product.getCurrency());
+                sb.append(order.getProduct(j));
             }
 
             if (order.getProductsCount() > 0) {
@@ -38,11 +30,5 @@ public class OrdersWriter {
         return sb.append("]}").toString();
     }
 
-    private String getSizeFor(Product product) {
-        return "\"size\": \""+product.getSize().name()+"\", ";
-    }
 
-    private String getColorFor(Product product) {
-        return product.getColor().name()+"\", ";
-    }
 }
