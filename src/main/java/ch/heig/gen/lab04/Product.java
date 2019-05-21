@@ -1,6 +1,7 @@
 package ch.heig.gen.lab04;
 
-public class Product {
+public class Product implements Jsonable {
+
     private String code;
     private Colors color;
     private Size size;
@@ -15,44 +16,19 @@ public class Product {
         this.currency = currency;
     }
 
-    public String getCode() {
-        return "{\"code\": \""+code+"\", \"color\": \"";
-    }
+    @Override
+    public void toJson(JsonBuilder builder) {
 
-    public Colors getColor() {
-        return color;
-    }
+        builder.startObject();
+        builder.addAttribute("code", code);
+        builder.addAttribute("color", color.name());
 
-    public Size getSize() {
-        return size;
-    }
-
-    public String getPrice() {
-        return "\"price\": "+price+", \"currency\": \"" ;
-    }
-
-    public String getCurrency() {
-        return currency+"\"}, ";
-    }
-
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(getCode());
-        sb.append(getColorFor(this));
-
-        if (getSize() != Size.NA) {
-            sb.append(getSizeFor(this));
+        if (size != Size.NA) {
+            builder.addAttribute("size", size.name());
         }
-        sb.append(getPrice());
-        sb.append(getCurrency());
-        return sb.toString();
-    }
 
-    private String getSizeFor(Product product) {
-        return "\"size\": \""+product.getSize().name()+"\", ";
-    }
-
-    private String getColorFor(Product product) {
-        return product.getColor().name()+"\", ";
+        builder.addAttribute("price", price);
+        builder.addAttribute("currency", currency);
+        builder.endObject();
     }
 }
