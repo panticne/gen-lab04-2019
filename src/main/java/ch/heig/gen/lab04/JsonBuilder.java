@@ -72,9 +72,7 @@ public class JsonBuilder {
     }
 
     private void removeLastObjectSeparator() {
-        //if (json.toString().endsWith(OBJECT_SEPARATOR)) {
-            json.delete(json.length() - OBJECT_SEPARATOR.length(), json.length());
-        //}
+        json.delete(json.length() - OBJECT_SEPARATOR.length(), json.length());
     }
 
     @Override
