@@ -1,11 +1,12 @@
 package ch.heig.gen.lab04;
 
 public enum Colors {
-    blue(1),red(2),yellow(3);
+
+    blue(1), red(2), yellow(3);
 
     private int value;
 
-    Colors(int value){
+    Colors(int value) {
         this.value = value;
     }
 
