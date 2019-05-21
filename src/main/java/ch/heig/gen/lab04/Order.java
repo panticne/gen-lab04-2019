@@ -12,7 +12,7 @@ public class Order implements Jsonable {
         this.id = id;
     }
 
-    public void AddProduct(Product product) {
+    public void addProduct(Product product) {
         products.add(product);
     }
 
